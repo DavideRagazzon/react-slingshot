@@ -10,16 +10,23 @@ jobs:
     steps:
       - checkout
       - run: npm i
+      - save_cache:
+          key: "npm-packages"
+          path: /src/node_modules
       - run: npm run lint
   test:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          key: "npm-packages"
       - run: npm run test
   analyze:
     <<: *defaults
     steps:
       - checkout
+      - restore_cache:
+          key: "npm-packages"
       - run: npm audit
 
 workflows:
