@@ -15,7 +15,8 @@ jobs:
       - run: ls
       - save_cache:
           key: "npm-packages"
-          path: ./node_modules
+          paths:
+            - ./node_modules
       - run: npm run lint
   test:
     <<: *defaults
