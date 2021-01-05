@@ -11,7 +11,7 @@ jobs:
       - checkout
       - run: echo "Working dir"
       - run: pwd
-      - run: mkdir /src
+      - run: mkdir src
       - run: ls
       - run: npm i
       - run: ls
