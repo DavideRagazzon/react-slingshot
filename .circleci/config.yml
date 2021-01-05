@@ -9,10 +9,15 @@ jobs:
     <<: *defaults
     steps:
       - checkout
+      - run: echo "Working dir"
+      - run: pwd
+      - run: mkdir /src
+      - run: ls
       - run: npm i
-      - save_cache:
-          key: "npm-packages"
-          path: /src/node_modules
+      - run: ls
+      #- save_cache:
+      #    key: "npm-packages"
+      #    path: /src/node_modules
       - run: npm run lint
   test:
     <<: *defaults
